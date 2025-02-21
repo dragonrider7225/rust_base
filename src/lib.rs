@@ -19,7 +19,6 @@
     not(debug_assertions),
     deny(clippy::dbg_macro, clippy::todo, clippy::unimplemented)
 )]
-#![cfg_attr(
-    feature = "lint_reasons",
-    deny(clippy::allow_attributes, clippy::allow_attributes_without_reason)
-)]
+// The `lint_reasons` feature was stabilized in 1.81.0. These lints therefore can't be enabled
+// except on nightly for earlier versions of `rustc`.
+// #![deny(clippy::allow_attributes, clippy::allow_attributes_without_reason)]
